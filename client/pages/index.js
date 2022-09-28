@@ -1,8 +1,10 @@
 import Head from 'next/head';
 import Container from '../layout/Container';
+import NavBar from '../layout/NavBar';
 import HeroWithDrop from '../components/HeroWithDrop';
 
-export default function Home() {
+export default function Home( { data } ) {
+
   return (
     <>
       <Head>
@@ -12,9 +14,22 @@ export default function Home() {
       </Head>
   
     <Container>
-      <HeroWithDrop />
+      <NavBar />
+      <HeroWithDrop data={data}/>
     </Container>
 
     </>
   )
+}
+
+export async function getStaticProps () {
+
+  const res = await fetch('http://localhost:3000/api/getData');
+  const data = await res.json()
+ 
+  return {
+    props: {
+      data
+    }, 
+  }
 }

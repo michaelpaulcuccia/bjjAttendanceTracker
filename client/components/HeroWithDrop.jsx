@@ -23,13 +23,19 @@ const SelectContainer = styled.div`
     }
 `;
 
-export default function HeroWithDrop() {
+export default function HeroWithDrop({ data }) {
   return (
     <Root>
         <img src='/assets/leandrolo.jpeg' alt='leandro lo' />
         <SelectContainer>
             <select>
                 <option value="">--Please Find Your Name--</option>
+                {
+                    data &&
+                    data.map((item, i) => (
+                        <option key={i} value={item.firstName + ' ' + item.LastName }>{item.firstName + ' ' + item.lastName }</option>
+                    ))
+                }
             </select>
         </SelectContainer>
     </Root>

@@ -9,8 +9,8 @@ const ComponentWrapper = styled.div`
   margin-right: auto;
 `;
 
-export default function Container({ children, className }) {
+export default function Container({ children }) {
   return (
-    <ComponentWrapper className={className}>{children}</ComponentWrapper>
+    <ComponentWrapper>{children}</ComponentWrapper>
   )
 }

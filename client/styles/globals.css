@@ -7,3 +7,8 @@
 body {
   background-color: lightgrey;
 }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
